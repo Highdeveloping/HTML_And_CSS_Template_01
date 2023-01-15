@@ -1,0 +1,616 @@
+/*Start Global Rules */
+
+:root {
+    --mainColor:#10cab7;
+    --sectionBackgroungColor:#f6f6f6;
+    --sectionHeadingColor:#ebeced;
+    --sectionDescriptionColor:#797979;
+    --sectionPadding:60px;
+    --paragraphLineHeight:1.8;
+    --paragraphColor:#777;
+}
+
+*{
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+   box-sizing: border-box;
+}
+/* Make scrolling smooth when click on the links */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+}
+
+/*  Heading and descritions For Each Section */
+ .section-heading-and-description-box {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 80px;
+    text-align: center;
+ }
+
+ .section-heading-and-description-box h2 {
+    margin: 0;
+    color: var(--sectionHeadingColor);
+    font-size: 100px;
+    letter-spacing: -3px;
+    font-weight: 800;
+ }
+ .section-heading-and-description-box p {
+    margin: 0;
+    color: var(--sectionDescriptionColor);
+    margin-top: -29px;
+    font-size: 20px;
+ }
+
+ /*  Heading and descritions For Each Section In Mobile */
+@media (max-width:767px) {
+ .section-heading-and-description-box h2{
+    font-size: 60px;
+ }
+
+ .section-heading-and-description-box p {
+    margin-top: -15px;
+ }
+ 
+}
+
+/* Container */
+.container {
+    /* Padding left and right 15px for all screen: Mobile, Small, Mediam, and Large */
+    padding-left: 15px;
+    padding-right: 15px;
+    /* Center the container horizontally for all screen: Mobile, Small, Mediam, and Large */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Small */
+@media (min-width:768px) {
+    .container {
+        width: 750px;
+    }
+}
+
+/* Medium */
+@media (min-width:992px) {
+    .container {
+        width: 970px;
+    }
+}
+
+/* Large */
+@media (min-width:1200px) {
+    .container {
+        width: 1170px;
+    }
+}
+/* End Global Rules */
+/************************************************************************************************/
+/*Start Header */
+header {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Logo */
+header .logo {
+    height: 24px;
+}
+
+/* nav contain Burger-icon div And UL links  Make it relative to control the position of Burger-icon div And UL links*/
+header nav {
+    position: relative;
+}
+
+/* when hover on nav, Make the width of the second line burger 35px */
+header nav:hover .burger-icon div:nth-child(2){
+    width: 35px;
+}
+
+/* The ul is hidden by make it display:none. So when hover on the nave show Ul by make it display:block */
+header nav:hover ul{
+    display: block;
+}
+
+/* Second line of burger-icons start from RTL, So we make the direction for Buger-icon RTL */
+header .burger-icon {
+    direction: rtl;
+    width: 50px;
+    height: 50px;
+    display: grid;
+    place-content: center;
+}
+
+/* Burger Icons 3 lines */
+header nav .burger-icon div{
+    width: 35px;
+    height: 2px;
+    background-color: black;
+    margin-bottom: 5px;
+}
+
+/* The width od Second line of burger-icons is 17px */
+header nav .burger-icon div:nth-child(2) {
+    width: 17px;
+
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+/* UL */
+header nav ul {
+    width: 200px;
+    list-style-type: none;
+    padding: 0;
+
+    
+    position: absolute;
+    right: 0;
+    top: 67%;
+
+    display: none;
+
+    background-color: var(--sectionBackgroungColor , #f6f6f6);
+    z-index: 1;
+
+}
+
+/*   href text*/
+header nav ul li a{
+    color: black;
+    text-decoration: none;
+    text-transform: capitalize;
+    
+    transition: 0.5s; /*When hover on li move a to right in 0.5s*/
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+
+    /* Make a take full width and height of li */
+    display: block;
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+}
+
+/* li */
+header nav ul li  {
+    position: relative ; /*make li relative to allow us to make arrow on the first li*/
+}
+
+/* all li but not the last one */
+header nav ul li:not(:last-child) {
+    border-bottom: 1px solid #ddd;
+}
+
+/* Make arrrow on the first li */
+header nav ul li:first-child::before {
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: var(--sectionBackgroungColor , #f6f6f6);
+    position: absolute;
+    right: 8px;
+    top: -7px;
+   
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+/*When hover on li move a to right */
+header nav ul li:hover a {
+    padding-left: 25px;
+}
+
+/*End Header */
+/***********************************************************************************************************************/
+/* Start Landing Section */
+.landing {
+    background-image: url(../images/landing.jpg);
+    background-size: cover;
+    /*make the background image full height*/
+    height: calc(100vh - 70px); /*here 70px is header height*/
+
+    position: relative; /*make it relative to center the text-intro-box*/
+}
+
+/* Text intro box */
+.landing .text-intro-box {
+    /* make the box in the center */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50% , -50%);
+    -webkit-transform: translate(-50% , -50%);
+    -moz-transform: translate(-50% , -50%);
+    -ms-transform: translate(-50% , -50%);
+    -o-transform: translate(-50% , -50%);
+
+    
+    width: 300px; /* make width 300px to make the paragraph text wrap */
+    text-align: center;
+}
+
+/* Style h1 in Text intro */
+.landing h1 {
+    margin: 0;
+    font-size: 50px;
+    color: var(--mainColor , #10cab7);
+    text-transform: capitalize;
+}
+
+/* Style p in Text intro */
+.landing p {
+    line-height: var(--paragraphLineHeight); /* Distance between lines */
+}
+
+
+/* End Landing Section */
+/************************************************************************************************************************/
+/* Start Feature Section */
+
+/* feature Section */
+.feature {
+    background-color: var(--sectionBackgroungColor);
+    padding-top: var(--sectionPadding);
+    padding-bottom: var(--sectionPadding);
+}
+
+/* Featute container */
+.feature .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 60px; 
+}
+
+/* feature feat */
+.feature .feat {
+    text-align:center;
+    padding: 15px;
+}
+
+/* Feature Icons */
+.feature i {
+    font-size: 50px;
+    color: var(--mainColor);
+} 
+
+/* Feature Heading [Take font information from UI UX] */
+.feature h3 {
+    font-weight: 800;
+}
+
+/* Feature Paragraph */
+.feature p {
+    line-height: var(--paragraphLineHeight);
+    color: var(--paragraphColor);
+}
+/* End Feature Section */
+/*************************************************************************************************/
+/* Start Services Section */
+.services {
+    padding-top: var(--sectionPadding);
+    padding-bottom: var(--sectionPadding);
+}
+
+/* distribure sereices and image by grid. */
+.services-content-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap: 50px;
+}
+
+/* distibute ser contents (Icon , and text div [h3 and p]) by flex */
+.services-content-box .col .ser {
+    display: flex;
+    margin-bottom: 50px;
+}
+
+/* distibute ser contents (Icon , and text div [h3 and p]) In Mobile */
+@media (max-width:767px) {
+    .services-content-box .col .ser {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* service icon */
+.services-content-box .col .ser  i {
+    color: var(--mainColor);
+    flex-basis: 60px;  /*if flex-direction is row, its mean width:60px. and if flex-direction is column, its mean height:60px*/   
+}
+
+/* make text div [h3 and p] flex:1. => its mean 0 width and grow in aailable space width. */
+.services-content-box .col .ser .text {
+    flex: 1; /*its mean flex-base:0 and flex-grow:1*/
+}
+
+/* service heading */
+.services-content-box .col .ser .text h3 {
+    margin: 0;
+}
+
+/* service paragraph */
+.services-content-box .col .ser .text p {
+    color: var(--paragraphColor);
+    line-height: var(--paragraphLineHeight);
+    font-weight: 300;
+}
+
+/* Image-box div [containg img] */
+.services-content-box .col .image-box {
+    width: 260px;
+    position: relative; /*make this div relative to create shape behind the image bu using after pseudo*/
+}
+
+/* Hide image in all screen except Larg Screen 1200px. So any screen less than 1200px will hide this image. */
+@media (max-width:1199px) {
+    .services-content-box .col .image-box {
+        display: none;
+    }
+}
+
+/* width of image */
+.services-content-box .col .image-box img{
+    width: 100%; /*width 100% of its parent [div image-box]*/
+}
+
+/* create shape behind the image */
+.services-content-box .col .image-box::after {
+    content: '';
+    width: 100px;
+    height: calc(100% + 100px);
+    background-color: #2c4755;
+    
+    position: absolute;
+    right: -50px;
+    top: -50px;
+    z-index: -1;
+}
+/* End Services Section */
+/*************************************************************************************************/
+/* Start Portfolio Section */
+
+/* Portfolio section */
+.portfolio {
+    padding-top: var(--sectionPadding);
+    padding-bottom: var(--sectionPadding);
+    background-color: var(--sectionBackgroungColor);
+}
+
+/* portfolio content box */
+.portfolio .container .portfolio-content-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px,1fr));
+    gap: 30px;
+}
+
+/* portfolio cards */
+.portfolio .container .portfolio-content-box .card {
+    background-color: #fff;
+}
+
+/* portfolio card image */
+.portfolio .container .portfolio-content-box .card img {
+    max-width: 100%;
+}
+
+/* portfolio card info div [h3 and p] */
+.portfolio .container .portfolio-content-box .card .card-info {
+    padding: 20px;
+}
+
+/* card info h3 */
+.portfolio .container .portfolio-content-box .card .card-info h3 {
+    margin: 0;
+}
+/* card info p */
+.portfolio .container .portfolio-content-box .card .card-info p {
+    margin-bottom: 0;
+    line-height: var(--paragraphLineHeight);
+    color: var(--paragraphColor);
+}
+/* End Portfolio Section */
+/*************************************************************************************************/
+/* Start About Section */
+.about {
+    padding-top: var(--sectionPadding);
+    padding-bottom: calc(var(--sectionPadding) + 60px); /*Add Extra 60px because left shape for image is near from section bottom*/
+}
+
+/* Distribute 2 div [ image and text ] using Flex*/
+.about .container .about-content-box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+/*  Make flex Column direction . Distribute 2 div [ image and text ] using Flex in Small screem [From mobile to 991.9px] */
+@media (max-width:991.px){
+    .about .container .about-content-box {
+        flex-direction: column;
+    }
+}
+
+/* give width and heigh for image div */
+.about .container .about-content-box .about-image-box  {
+    width: 250px;
+    height: 375px;
+    position: relative; /*Make ir relative , because we need to make image shape using before and after psuedo elements*/
+}
+
+/* center imahe horezontally in small screem [from mobile to 991.9px] */
+@media (max-width:991.9px) {
+    .about .container .about-content-box .about-image-box   {
+      margin-left: auto;
+      margin-right: auto;
+    }
+}
+/* make left shape for image */
+.about .container .about-content-box .about-image-box::before {
+    content: '';
+    width: 100px;
+    height: calc(100% + 80px);
+    background-color: var(--sectionHeadingColor);
+    
+    position: absolute;
+    top: -40px;
+    left: -20px;
+    
+    z-index: -1;
+}
+/*  make right shape for image. [create L shape using border bottom and border left for element]  */
+.about .container .about-content-box .about-image-box::after {
+    content: '';
+    width: 100px;
+    height: 300px;
+ 
+    position: absolute;
+   
+    border-bottom: 80px solid var(--mainColor);
+    border-left: 80px solid var(--mainColor);
+    
+    top: -40px;
+    right: -133px;
+    
+    z-index: -1;
+}
+
+/* Hide left and right imahe shapes in sall screen [from mobile to 991.9px] */
+@media (max-width:991.9px) {
+    .about .container .about-content-box .about-image-box::before,
+    .about .container .about-content-box .about-image-box::after {
+        display: none;
+    }
+}
+
+/* make image 100% width and heigh of its div container */
+.about .container .about-content-box .about-image-box img {
+    width: 100%;
+    height: 100%;
+}
+
+/* make width for about description box 100% - 500px [leave 500px for image] */
+.about .container .about-content-box .about-description-box {
+   flex-basis: calc(100% - 500px);
+}
+
+/* about description box width is 100% in small screen. [from mobile to 991.9px]*/
+@media (max-width:991.9px) {
+    .about .container .about-content-box .about-description-box  {
+       flex-basis: 100%;
+       text-align: center;
+       margin-top: 50px;
+    }
+}
+
+/* Style first paragraph */
+.about .container .about-content-box .about-description-box p:first-of-type {
+    font-weight: bold;
+    line-height: var(--paragraphLineHeight);
+    margin-bottom: 50px;
+}
+
+/* Style hr between 2 paragraph */
+.about .container .about-content-box .about-description-box hr {
+    width: 50%;
+    margin-left: 0;
+    border-color: var(--mainColor);
+}
+/* center hr between 2 paragraph in small screens [from mobile to 991.9px]*/
+@media (max-width:991.9px) {
+    .about .container .about-content-box .about-description-box hr {
+       margin-left: auto;
+    }
+}
+
+/* Style last paragraph */
+.about .container .about-content-box .about-description-box p:last-of-type {
+    color: var(--paragraphColor);
+    line-height: var(--paragraphLineHeight);
+    margin-top: 40px;
+
+}
+/* End About Section */
+/*************************************************************************************************/
+/* Start Contact Section */
+.contact {
+    padding-top: var(--sectionPadding);
+    padding-bottom: var(--sectionPadding);
+    background-color: var(--sectionBackgroungColor);
+}
+
+/* Center content horezontally */
+.contact .container .contact-content-box {
+    text-align: center;
+}
+
+/* Style p */
+.contact .container .contact-content-box .mail p {
+    font-size: 35px;
+    font-weight: 800;
+    letter-spacing: -2px;
+    color: #2c4755;
+    margin-bottom: 20px;
+}
+
+
+/* Style Email link */
+.contact .container .contact-content-box .mail a {
+    font-weight: 800;
+    font-size: 31px;
+    color: var(--mainColor);
+    text-decoration: none;
+}
+
+/* Decrease font-size for p and Email Link in Small screen. [from mobile to 767px] */
+@media (max-width:767px) {
+    .contact .container .contact-content-box .mail p,
+    .contact .container .contact-content-box .mail a {
+        font-size: 25px;
+       
+    }
+}
+
+/* Distribute Social network box using flex. [disdtibute div and 3 icons] */
+.contact .container .contact-content-box .social-network-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+
+    margin-top: 20px;
+}
+/* End Contact Section */
+/*************************************************************************************************/
+/* Start Footer Section */
+.footer {
+    padding-top: calc( var(--sectionPadding) / 2);
+    padding-bottom: calc(var(--sectionPadding) / 2);
+    text-align: center;
+    background-color: #2c4755;
+    color: white;
+    font-size: 18px;  
+}
+
+/* style span */
+.footer span {
+    color: var(--mainColor);
+    font-weight: bold;
+}
+/* End Footer Section */
+
